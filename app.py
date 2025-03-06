@@ -37,11 +37,11 @@ st.write('Enter a movie review to classify it as positive or negative.')
 user_input = st.text_area("Movie Review")
 
 if st.button("Classify"):
-    sentiment,probability = predict_sentiment(user_input)
-    st.write(f"The sentiment is {sentiment} by this probabilit: {probability}")
-
-else:
-    st.write("Please enter the review")
+    try:
+        sentiment,probability = predict_sentiment(user_input)
+        st.write(f"The sentiment is {sentiment} by this probabilit: {probability}")
+    except Exception as e:
+        st.write(f"Sorry, I can not process this comment")
 
 
     
